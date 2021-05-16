@@ -2581,6 +2581,11 @@ class core_renderer extends renderer_base {
             $attributes['title'] = $alt;
         }
 
+        // Add presentation role if there is no alt tag.
+        if (empty($alt)) {
+            $attributes['role'] = 'presentation';
+        }
+
         // get the image html output fisrt
         $output = html_writer::empty_tag('img', $attributes);
 
